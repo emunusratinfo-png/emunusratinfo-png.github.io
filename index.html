@@ -1,0 +1,1714 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Nusrat Edit | Nusrat Jahan — Learning. Creating. Becoming.</title>
+  <meta name="description" content="Welcome to The Nusrat Edit — the personal brand portfolio of Nusrat Jahan from Bangladesh. A space where learning, creativity, technology, and new ideas come together." />
+
+  <!-- ==========================================================================
+       GOOGLE FONTS
+       - Cormorant Garamond: Elegant, high-fashion editorial serif for headings
+       - Plus Jakarta Sans: Clean, modern, highly legible sans-serif for body text
+       ========================================================================== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- ==========================================================================
+       TAILWIND CONFIGURATION & BRAND COLOR PALETTE
+       You can customize any color hex code right here in one place.
+       ========================================================================== -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ivory: '#FFF9F5',       /* Warm Ivory - Primary Background */
+            rose: '#D8A7AD',        /* Dusty Rose - Primary Accent */
+            roseDark: '#B98389',    /* Deeper Dusty Rose for hover states */
+            blush: '#F5E5E5',       /* Soft Blush Pink - Secondary Background */
+            beige: '#EDE2D5',       /* Warm Beige - Borders & Subtle Surfaces */
+            espresso: '#493A3A',    /* Dark Brown - Primary Text & Headings */
+            espressoMuted: '#6E5A5A'/* Softened Brown for secondary body text */
+          },
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+          },
+          boxShadow: {
+            'editorial': '0 14px 38px -12px rgba(73, 58, 58, 0.07)',
+            'editorial-hover': '0 22px 45px -12px rgba(73, 58, 58, 0.13)',
+            'soft-inner': 'inset 0 1px 0 0 rgba(255, 255, 255, 0.65)'
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- ==========================================================================
+       CUSTOM EDITORIAL CSS STYLES
+       ========================================================================== -->
+  <style>
+    :root {
+      --warm-ivory: #FFF9F5;
+      --dusty-rose: #D8A7AD;
+      --soft-blush: #F5E5E5;
+      --warm-beige: #EDE2D5;
+      --dark-brown: #493A3A;
+    }
+
+    body {
+      background-color: var(--warm-ivory);
+      color: var(--dark-brown);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      overflow-x: hidden;
+      selection-background-color: var(--dusty-rose);
+    }
+
+    ::selection {
+      background-color: #F5E5E5;
+      color: #493A3A;
+    }
+
+    /* Editorial Arch Shape for Profile Photo Frame */
+    .arch-frame {
+      border-radius: 220px 220px 24px 24px;
+    }
+
+    /* Subtle grain/paper texture overlay for an authentic magazine feel */
+    .bg-editorial-gradient {
+      background: radial-gradient(circle at 85% 12%, rgba(245, 229, 229, 0.7) 0%, rgba(255, 249, 245, 0) 50%),
+                  radial-gradient(circle at 12% 80%, rgba(237, 226, 213, 0.55) 0%, rgba(255, 249, 245, 0) 45%);
+    }
+
+    /* Smooth scroll reveal classes */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Delicate underline animation for navigation links */
+    .nav-link {
+      position: relative;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0%;
+      height: 1.5px;
+      background-color: var(--dusty-rose);
+      transition: width 0.35s ease;
+    }
+    .nav-link:hover::after,
+    .nav-link.active-link::after {
+      width: 100%;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #FFF9F5;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #D8A7AD;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #B98389;
+    }
+
+    /* Editable mode highlight indicator */
+    [contenteditable="true"] {
+      outline: 1.5px dashed #D8A7AD;
+      outline-offset: 4px;
+      border-radius: 6px;
+      background-color: rgba(245, 229, 229, 0.25);
+      transition: all 0.2s ease;
+    }
+    [contenteditable="true"]:focus {
+      outline: 2px solid #493A3A;
+      background-color: rgba(255, 255, 255, 0.85);
+    }
+  </style>
+</head>
+
+<body class="antialiased selection:bg-blush selection:text-espresso">
+
+  <!-- ==========================================================================
+       1. STICKY NAVIGATION BAR
+       Includes brand identity, section links, live Edit-Preview toggle, and mobile menu
+       ========================================================================== -->
+  <header id="navbar" class="sticky top-0 z-40 w-full bg-ivory/90 backdrop-blur-md border-b border-beige transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="#home" class="group flex flex-col focus:outline-none">
+        <span class="font-serif text-2xl sm:text-3xl font-semibold tracking-tight text-espresso group-hover:text-roseDark transition-colors">
+          The Nusrat Edit
+        </span>
+        <span class="text-[10px] uppercase tracking-[0.25em] text-espressoMuted -mt-1">
+          Nusrat Jahan • Bangladesh
+        </span>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden lg:flex items-center space-x-7 text-sm font-medium text-espresso/90" aria-label="Main Navigation">
+        <a href="#home" class="nav-link py-1 hover:text-espresso transition-colors">Home</a>
+        <a href="#about" class="nav-link py-1 hover:text-espresso transition-colors">About</a>
+        <a href="#interests" class="nav-link py-1 hover:text-espresso transition-colors">Interests</a>
+        <a href="#projects" class="nav-link py-1 hover:text-espresso transition-colors">Projects</a>
+        <a href="#journey" class="nav-link py-1 hover:text-espresso transition-colors">Journey</a>
+        <a href="#creative-corner" class="nav-link py-1 hover:text-espresso transition-colors">Creative Corner</a>
+        <a href="#vision" class="nav-link py-1 hover:text-espresso transition-colors">Vision</a>
+        <a href="#contact" class="nav-link py-1 hover:text-espresso transition-colors">Contact</a>
+      </nav>
+
+      <!-- Right Action: Live Text Edit Toggle + Contact Button -->
+      <div class="hidden sm:flex items-center space-x-3">
+        <button
+          id="toggleEditModeBtn"
+          type="button"
+          class="inline-flex items-center gap-2 px-3.5 py-2 rounded-full text-xs font-medium border border-beige bg-ivory hover:bg-blush text-espresso transition-all duration-300 shadow-sm"
+          title="Click to test editing text directly on the page"
+        >
+          <span id="editStatusDot" class="w-2 h-2 rounded-full bg-rose"></span>
+          <span id="editBtnLabel">Try Live Edit</span>
+        </button>
+
+        <a
+          href="#contact"
+          class="inline-flex items-center px-5 py-2.5 rounded-full text-xs uppercase tracking-[0.16em] font-medium bg-espresso text-ivory hover:bg-rose hover:text-espresso transition-all duration-300"
+        >
+          Say Hello
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button
+        id="mobileMenuBtn"
+        type="button"
+        class="lg:hidden p-2.5 rounded-full border border-beige text-espresso hover:bg-blush focus:outline-none transition-colors"
+        aria-label="Open Navigation Menu"
+        aria-expanded="false"
+      >
+        <svg id="menuIconOpen" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 7h16M4 12h16M10 17h10" />
+        </svg>
+        <svg id="menuIconClose" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Dropdown Navigation -->
+    <div id="mobileMenu" class="hidden lg:hidden bg-ivory border-b border-beige px-6 pt-4 pb-7 space-y-4">
+      <div class="grid grid-cols-2 gap-3 text-sm font-medium text-espresso">
+        <a href="#home" class="mobile-nav-link py-2 px-3 rounded-xl hover:bg-blush transition-colors">Home</a>
+        <a href="#about" class="mobile-nav-link py-2 px-3 rounded-xl hover:bg-blush transition-colors">About Me</a>
+        <a href="#interests" class="mobile-nav-link py-2 px-3 rounded-xl hover:bg-blush transition-colors">My Interests</a>
+        <a href="#projects" class="mobile-nav-link py-2 px-3 rounded-xl hover:bg-blush transition-colors">My Projects</a>
+        <a href="#journey" class="mobile-nav-link py-2 px-3 rounded-xl hover:bg-blush transition-colors">My Journey</a>
+        <a href="#creative-corner" class="mobile-nav-link py-2 px-3 rounded-xl hover:bg-blush transition-colors">Creative Corner</a>
+        <a href="#vision" class="mobile-nav-link py-2 px-3 rounded-xl hover:bg-blush transition-colors">My Vision</a>
+        <a href="#contact" class="mobile-nav-link py-2 px-3 rounded-xl hover:bg-blush transition-colors">Contact</a>
+      </div>
+      <div class="pt-3 border-t border-beige flex items-center justify-between gap-3">
+        <button
+          id="mobileToggleEditBtn"
+          type="button"
+          class="flex-1 py-2.5 px-4 rounded-full text-xs font-medium border border-beige bg-blush/60 text-espresso text-center"
+        >
+          Toggle Live Text Edit
+        </button>
+        <a
+          href="#contact"
+          class="mobile-nav-link flex-1 py-2.5 px-4 rounded-full text-xs uppercase tracking-widest font-medium bg-espresso text-ivory text-center"
+        >
+          Get in Touch
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       2. HERO SECTION
+       Features "The Nusrat Edit", "Nusrat Jahan", tagline, intro, two CTAs,
+       and an editable arch-shaped profile photo frame.
+       ========================================================================== -->
+  <section id="home" class="relative bg-editorial-gradient pt-10 pb-20 md:py-24 lg:py-28 border-b border-beige overflow-hidden">
+    
+    <!-- Subtle Decorative Botanical Background Element -->
+    <div class="pointer-events-none absolute -top-20 -left-20 w-96 h-96 rounded-full bg-blush/50 blur-3xl"></div>
+    <div class="pointer-events-none absolute bottom-10 right-10 w-80 h-80 rounded-full bg-beige/60 blur-3xl"></div>
+
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
+
+        <!-- Left Column: Brand Text & CTAs (7 columns on desktop) -->
+        <div class="lg:col-span-7 space-y-6 text-left reveal active">
+          
+          <!-- Brand Name Pill Badge -->
+          <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-blush border border-rose/40">
+            <span class="w-2 h-2 rounded-full bg-rose"></span>
+            <span class="text-xs uppercase tracking-[0.22em] font-medium text-espresso editable-text">
+              The Nusrat Edit
+            </span>
+          </div>
+
+          <!-- Personal Name & Editorial Subtitle -->
+          <div class="space-y-2">
+            <p class="text-xs sm:text-sm uppercase tracking-[0.25em] text-espressoMuted font-medium editable-text">
+              Personal Portfolio &amp; Creative Journal • Bangladesh
+            </p>
+            <h1 class="font-serif text-5xl sm:text-6xl lg:text-7xl font-normal tracking-tight text-espresso leading-[1.08] editable-text">
+              Nusrat Jahan
+            </h1>
+          </div>
+
+          <!-- Tagline -->
+          <p class="font-serif italic text-2xl sm:text-3xl text-roseDark font-normal tracking-wide editable-text">
+            “Learning. Creating. Becoming.”
+          </p>
+
+          <!-- Introduction Paragraph -->
+          <p class="text-base sm:text-lg text-espressoMuted leading-relaxed max-w-2xl font-normal editable-text">
+            Welcome to my little corner of the internet — a space where learning, creativity, technology, and new ideas come together.
+          </p>
+
+          <!-- Two Required CTA Buttons -->
+          <div class="pt-3 flex flex-wrap items-center gap-4">
+            <a
+              href="#about"
+              class="inline-flex items-center justify-center gap-3 px-7 py-4 rounded-full bg-espresso text-ivory text-sm font-medium tracking-wide hover:bg-rose hover:text-espresso transition-all duration-300 shadow-editorial"
+            >
+              <span>Explore My World</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+            </a>
+
+            <a
+              href="#projects"
+              class="inline-flex items-center justify-center gap-3 px-7 py-4 rounded-full bg-ivory text-espresso border border-espresso/30 hover:border-espresso hover:bg-blush/60 text-sm font-medium tracking-wide transition-all duration-300"
+            >
+              <span>Discover My Projects</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
+          </div>
+
+          <!-- Subtle Highlights Strip -->
+          <div class="pt-6 border-t border-beige/90 grid grid-cols-3 gap-4 max-w-lg text-left">
+            <div>
+              <span class="block font-serif text-xl sm:text-2xl font-semibold text-espresso editable-text">Curiosity</span>
+              <span class="text-xs text-espressoMuted">Lifelong Student</span>
+            </div>
+            <div>
+              <span class="block font-serif text-xl sm:text-2xl font-semibold text-espresso editable-text">Craft &amp; Code</span>
+              <span class="text-xs text-espressoMuted">Handmade to AI</span>
+            </div>
+            <div>
+              <span class="block font-serif text-xl sm:text-2xl font-semibold text-espresso editable-text">Bangladesh</span>
+              <span class="text-xs text-espressoMuted">Rooted &amp; Growing</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Editable Profile Photo Placeholder (5 columns on desktop) -->
+        <div class="lg:col-span-5 flex flex-col items-center lg:items-end reveal active">
+          <div class="relative w-full max-w-sm">
+            
+            <!-- Decorative Offset Arch Border -->
+            <div class="absolute -inset-3 arch-frame border border-rose/60 translate-x-2 translate-y-2 pointer-events-none"></div>
+
+            <!-- Main Arch Photo Container -->
+            <div class="relative arch-frame bg-blush border border-beige shadow-editorial overflow-hidden aspect-[4/5] flex flex-col items-center justify-between p-8 text-center group">
+              
+              <!-- ==============================================================
+                   HOW TO ADD YOUR PERMANENT PROFILE PHOTO LATER:
+                   1. Place your photo file (e.g., "nusrat-photo.jpg") in the same
+                      folder as this index.html file.
+                   2. In the <img> tag right below, change src="" to src="nusrat-photo.jpg"
+                      and remove the "hidden" class from class="...".
+                   ============================================================== -->
+              <img
+                id="userProfilePhoto"
+                src=""
+                alt="Portrait of Nusrat Jahan"
+                class="hidden absolute inset-0 w-full h-full object-cover object-center z-10"
+              />
+
+              <!-- Top Tag inside Placeholder -->
+              <div class="relative z-0 w-full flex items-center justify-between text-[11px] uppercase tracking-[0.2em] text-espressoMuted">
+                <span>The Nusrat Edit</span>
+                <span>Portrait Space</span>
+              </div>
+
+              <!-- Center Bespoke Botanical & Monogram SVG Artwork (No Fake Portrait) -->
+              <div id="photoPlaceholderGraphic" class="relative z-0 my-auto flex flex-col items-center max-w-[230px]">
+                <div class="w-32 h-32 rounded-full bg-ivory/90 border border-rose/50 flex items-center justify-center shadow-sm mb-5 relative">
+                  <!-- Delicate Botanical Line Art SVG -->
+                  <svg class="w-24 h-24 text-espresso" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="60" cy="60" r="52" stroke="#D8A7AD" stroke-width="1" stroke-dasharray="3 3" />
+                    <!-- Botanical Stem & Leaves -->
+                    <path d="M60 95C60 70 60 45 60 25" stroke="#493A3A" stroke-width="1.3" stroke-linecap="round"/>
+                    <path d="M60 75C48 73 40 64 42 54C52 54 58 63 60 75Z" fill="#F5E5E5" stroke="#493A3A" stroke-width="1.2"/>
+                    <path d="M60 63C72 61 80 52 78 42C68 42 62 51 60 63Z" fill="#EDE2D5" stroke="#493A3A" stroke-width="1.2"/>
+                    <path d="M60 48C50 45 45 36 48 28C56 30 60 38 60 48Z" fill="#D8A7AD" fill-opacity="0.45" stroke="#493A3A" stroke-width="1.2"/>
+                    <circle cx="60" cy="22" r="3.5" fill="#D8A7AD" stroke="#493A3A" stroke-width="1.2"/>
+                  </svg>
+                  <span class="absolute -bottom-2 px-3 py-0.5 rounded-full bg-espresso text-ivory font-serif text-xs tracking-widest">
+                    N • J
+                  </span>
+                </div>
+
+                <h2 class="font-serif text-2xl text-espresso font-medium mb-1">
+                  Future Portrait Space
+                </h2>
+                <p class="text-xs text-espressoMuted leading-relaxed">
+                  Reserved for Nusrat Jahan’s personal photo. Replace via HTML or preview a photo below.
+                </p>
+              </div>
+
+              <!-- Interactive Photo Preview Controls (Works right in the browser!) -->
+              <div class="relative z-20 w-full pt-3 flex items-center justify-center gap-2">
+                <label
+                  for="profilePhotoInput"
+                  class="cursor-pointer inline-flex items-center gap-2 px-4 py-2 rounded-full bg-ivory/95 hover:bg-espresso text-espresso hover:text-ivory border border-beige text-xs font-medium transition-all duration-300 shadow-sm"
+                >
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                  <span>Preview Your Photo</span>
+                </label>
+                <input id="profilePhotoInput" type="file" accept="image/*" class="hidden" />
+
+                <button
+                  id="resetPhotoBtn"
+                  type="button"
+                  class="hidden px-3 py-2 rounded-full bg-ivory/90 hover:bg-blush text-espresso border border-beige text-xs font-medium transition-all"
+                  title="Restore floral placeholder"
+                >
+                  Reset
+                </button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       3. ABOUT ME SECTION
+       Honest, warm, editable narrative introducing Nusrat Jahan as a student from
+       Bangladesh without inventing fake credentials or work history.
+       ========================================================================== -->
+  <section id="about" class="py-20 md:py-28 bg-ivory border-b border-beige">
+    <div class="max-w-6xl mx-auto px-5 sm:px-8 lg:px-12">
+      
+      <!-- Section Header -->
+      <div class="max-w-2xl mx-auto text-center mb-16 reveal">
+        <span class="text-xs uppercase tracking-[0.25em] text-roseDark font-semibold block mb-2">
+          01 • Introduction
+        </span>
+        <h2 class="font-serif text-4xl sm:text-5xl text-espresso font-normal tracking-tight editable-text">
+          About Me
+        </h2>
+        <div class="w-16 h-[1.5px] bg-rose mx-auto mt-4"></div>
+      </div>
+
+      <!-- Main About Content Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+        
+        <!-- Left Editorial Profile Card (5 Columns) -->
+        <div class="lg:col-span-5 bg-blush/60 border border-beige rounded-3xl p-8 sm:p-10 shadow-editorial reveal">
+          <span class="inline-block text-xs uppercase tracking-[0.2em] text-espressoMuted mb-3">
+            At a Glance
+          </span>
+          <h3 class="font-serif text-3xl text-espresso font-medium mb-4 editable-text">
+            Hello, I’m Nusrat Jahan.
+          </h3>
+          <p class="text-sm sm:text-base text-espressoMuted leading-relaxed mb-6 editable-text">
+            I am a student from Bangladesh with a deep love for learning new skills, exploring emerging technology, expressing handmade and digital creativity, and intentionally growing into my best self.
+          </p>
+
+          <!-- Key Personal Details List (100% Editable, No Invented Claims) -->
+          <div class="space-y-3.5 pt-4 border-t border-beige text-sm">
+            <div class="flex items-center justify-between">
+              <span class="text-espressoMuted">Name</span>
+              <span class="font-medium text-espresso editable-text">Nusrat Jahan</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-espressoMuted">Personal Space</span>
+              <span class="font-medium text-espresso editable-text">The Nusrat Edit</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-espressoMuted">Based In</span>
+              <span class="font-medium text-espresso editable-text">Bangladesh</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-espressoMuted">Current Focus</span>
+              <span class="font-medium text-espresso editable-text">Student &amp; Creative Learner</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Story & Philosophy Pillars (7 Columns) -->
+        <div class="lg:col-span-7 space-y-6 reveal">
+          <div class="bg-ivory border border-beige rounded-3xl p-8 sm:p-10 shadow-editorial space-y-5">
+            <h3 class="font-serif text-2xl sm:text-3xl text-espresso font-medium editable-text">
+              A Story Written Through Curiosity
+            </h3>
+            
+            <!-- Editable Paragraphs: Customize your personal story anytime -->
+            <p class="text-espressoMuted leading-relaxed text-base editable-text">
+              For me, growth has never been about rushing toward a fixed destination—it is about staying curious, asking thoughtful questions, and embracing the joy of being a beginner. Whether I am studying a new concept, experimenting with modern AI tools, or patiently looping yarn with a crochet hook, I find beauty in the process of creation.
+            </p>
+            <p class="text-espressoMuted leading-relaxed text-base editable-text">
+              I created <strong class="font-medium text-espresso">The Nusrat Edit</strong> as an honest, evolving reflection of my journey. Rather than waiting until everything is “finished,” this space celebrates ongoing learning, thoughtful experiments, and the gentle pursuit of personal and creative development.
+            </p>
+
+            <!-- Three Core Pillars -->
+            <div class="pt-4 grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div class="p-4 rounded-2xl bg-blush/40 border border-beige">
+                <span class="font-serif text-lg font-semibold text-espresso block mb-1 editable-text">01. Learning</span>
+                <p class="text-xs text-espressoMuted leading-relaxed editable-text">
+                  Approaching education, technology, and life with an open, inquisitive mindset.
+                </p>
+              </div>
+              <div class="p-4 rounded-2xl bg-blush/40 border border-beige">
+                <span class="font-serif text-lg font-semibold text-espresso block mb-1 editable-text">02. Creating</span>
+                <p class="text-xs text-espressoMuted leading-relaxed editable-text">
+                  Blending tactile handmade crafts like crochet with modern digital expression.
+                </p>
+              </div>
+              <div class="p-4 rounded-2xl bg-blush/40 border border-beige">
+                <span class="font-serif text-lg font-semibold text-espresso block mb-1 editable-text">03. Becoming</span>
+                <p class="text-xs text-espressoMuted leading-relaxed editable-text">
+                  Building habits, confidence, and ideas step by step with patience and purpose.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       4. MY INTERESTS SECTION
+       Five elegant cards with bespoke SVG icons:
+       1) Education & Personal Growth
+       2) AI & Technology
+       3) Crochet & Handmade Creativity
+       4) Business & Entrepreneurship
+       5) Digital Creativity & Content Creation
+       ========================================================================== -->
+  <section id="interests" class="py-20 md:py-28 bg-blush/40 border-b border-beige">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
+      
+      <!-- Section Header -->
+      <div class="max-w-2xl mx-auto text-center mb-16 reveal">
+        <span class="text-xs uppercase tracking-[0.25em] text-roseDark font-semibold block mb-2">
+          02 • What Inspires Me
+        </span>
+        <h2 class="font-serif text-4xl sm:text-5xl text-espresso font-normal tracking-tight editable-text">
+          My Interests
+        </h2>
+        <p class="mt-4 text-sm sm:text-base text-espressoMuted editable-text">
+          Five interconnected worlds that shape how I learn, think, and create every day.
+        </p>
+      </div>
+
+      <!-- Five Elegant Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
+        
+        <!-- Card 1: Education & Personal Growth -->
+        <article class="group bg-ivory border border-beige rounded-3xl p-8 shadow-editorial hover:shadow-editorial-hover hover:-translate-y-1 transition-all duration-300 reveal">
+          <div class="w-14 h-14 rounded-2xl bg-blush border border-rose/40 flex items-center justify-center text-espresso mb-6 group-hover:bg-rose group-hover:text-ivory transition-colors duration-300">
+            <!-- Open Book & Sprout SVG Icon -->
+            <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+            </svg>
+          </div>
+          <span class="text-[11px] uppercase tracking-[0.2em] text-roseDark font-medium">Interest 01</span>
+          <h3 class="font-serif text-2xl text-espresso font-medium mt-1 mb-3 editable-text">
+            Education &amp; Personal Growth
+          </h3>
+          <p class="text-sm text-espressoMuted leading-relaxed editable-text">
+            Cultivating mindful study habits, expanding my perspective through reading and reflection, and committing to continuous self-improvement inside and outside the classroom.
+          </p>
+        </article>
+
+        <!-- Card 2: AI & Technology -->
+        <article class="group bg-ivory border border-beige rounded-3xl p-8 shadow-editorial hover:shadow-editorial-hover hover:-translate-y-1 transition-all duration-300 reveal">
+          <div class="w-14 h-14 rounded-2xl bg-blush border border-rose/40 flex items-center justify-center text-espresso mb-6 group-hover:bg-rose group-hover:text-ivory transition-colors duration-300">
+            <!-- Sparkles / AI Node SVG Icon -->
+            <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456z" />
+            </svg>
+          </div>
+          <span class="text-[11px] uppercase tracking-[0.2em] text-roseDark font-medium">Interest 02</span>
+          <h3 class="font-serif text-2xl text-espresso font-medium mt-1 mb-3 editable-text">
+            AI &amp; Technology
+          </h3>
+          <p class="text-sm text-espressoMuted leading-relaxed editable-text">
+            Exploring how artificial intelligence and modern digital tools can empower students, spark new creative workflows, and make learning more intuitive and accessible.
+          </p>
+        </article>
+
+        <!-- Card 3: Crochet & Handmade Creativity -->
+        <article class="group bg-ivory border border-beige rounded-3xl p-8 shadow-editorial hover:shadow-editorial-hover hover:-translate-y-1 transition-all duration-300 reveal">
+          <div class="w-14 h-14 rounded-2xl bg-blush border border-rose/40 flex items-center justify-center text-espresso mb-6 group-hover:bg-rose group-hover:text-ivory transition-colors duration-300">
+            <!-- Yarn Ball & Hook Custom SVG Icon -->
+            <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+              <circle cx="11" cy="13" r="7" />
+              <path stroke-linecap="round" d="M7.5 9.5c2.5 1 5.5 1 8 0M6.5 13c3 1.2 6 1.2 9 0M8 16.5c2 .8 4 .8 6 0" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 8l4.5-4.5c.8-.8 2-.2 1.5.9l-.8 1.6" />
+            </svg>
+          </div>
+          <span class="text-[11px] uppercase tracking-[0.2em] text-roseDark font-medium">Interest 03</span>
+          <h3 class="font-serif text-2xl text-espresso font-medium mt-1 mb-3 editable-text">
+            Crochet &amp; Handmade Creativity
+          </h3>
+          <p class="text-sm text-espressoMuted leading-relaxed editable-text">
+            Turning soft yarn into thoughtful handmade pieces—cherishing the slow, meditative rhythm of stitches, textures, patterns, and tactile artistry.
+          </p>
+        </article>
+
+        <!-- Card 4: Business & Entrepreneurship -->
+        <article class="group bg-ivory border border-beige rounded-3xl p-8 shadow-editorial hover:shadow-editorial-hover hover:-translate-y-1 transition-all duration-300 lg:col-start-1 lg:translate-x-1/2 reveal">
+          <div class="w-14 h-14 rounded-2xl bg-blush border border-rose/40 flex items-center justify-center text-espresso mb-6 group-hover:bg-rose group-hover:text-ivory transition-colors duration-300">
+            <!-- Compass / Idea Lightbulb SVG Icon -->
+            <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.383a14.406 14.406 0 01-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 10-7.517 0c.85.493 1.509 1.333 1.509 2.316V18" />
+            </svg>
+          </div>
+          <span class="text-[11px] uppercase tracking-[0.2em] text-roseDark font-medium">Interest 04</span>
+          <h3 class="font-serif text-2xl text-espresso font-medium mt-1 mb-3 editable-text">
+            Business &amp; Entrepreneurship
+          </h3>
+          <p class="text-sm text-espressoMuted leading-relaxed editable-text">
+            Learning how meaningful ideas take shape—studying brand storytelling, ethical value creation, and how small creative ventures can grow sustainably.
+          </p>
+        </article>
+
+        <!-- Card 5: Digital Creativity & Content Creation -->
+        <article class="group bg-ivory border border-beige rounded-3xl p-8 shadow-editorial hover:shadow-editorial-hover hover:-translate-y-1 transition-all duration-300 lg:col-start-2 lg:translate-x-1/2 reveal">
+          <div class="w-14 h-14 rounded-2xl bg-blush border border-rose/40 flex items-center justify-center text-espresso mb-6 group-hover:bg-rose group-hover:text-ivory transition-colors duration-300">
+            <!-- Editorial Frame & Pen SVG Icon -->
+            <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125" />
+            </svg>
+          </div>
+          <span class="text-[11px] uppercase tracking-[0.2em] text-roseDark font-medium">Interest 05</span>
+          <h3 class="font-serif text-2xl text-espresso font-medium mt-1 mb-3 editable-text">
+            Digital Creativity &amp; Content Creation
+          </h3>
+          <p class="text-sm text-espressoMuted leading-relaxed editable-text">
+            Designing visual aesthetics, curating thoughtful notes, and crafting digital spaces that feel calm, inspiring, and authentically human.
+          </p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       5. MY PROJECTS SECTION
+       Responsive project gallery with category filtering and editable cards for:
+       - Crochet creations
+       - AI experiments
+       - Digital content
+       - Learning projects
+       - Business ideas
+       Note: Framed honestly as customizable showcase slots without inventing fake projects.
+       ========================================================================== -->
+  <section id="projects" class="py-20 md:py-28 bg-ivory border-b border-beige">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
+      
+      <!-- Section Header -->
+      <div class="max-w-2xl mx-auto text-center mb-12 reveal">
+        <span class="text-xs uppercase tracking-[0.25em] text-roseDark font-semibold block mb-2">
+          03 • Curated Work &amp; Explorations
+        </span>
+        <h2 class="font-serif text-4xl sm:text-5xl text-espresso font-normal tracking-tight editable-text">
+          My Projects
+        </h2>
+        <p class="mt-4 text-sm sm:text-base text-espressoMuted editable-text">
+          An evolving collection of my explorations across handmade craft, technology, learning, and creative concepts. Each card is ready to be updated as new work unfolds.
+        </p>
+      </div>
+
+      <!-- Category Filter Buttons -->
+      <div class="flex flex-wrap items-center justify-center gap-2.5 mb-12 reveal" role="tablist" aria-label="Project Categories">
+        <button type="button" data-filter="all" class="project-filter-btn px-5 py-2 rounded-full text-xs uppercase tracking-widest font-medium bg-espresso text-ivory transition-all">
+          All Categories
+        </button>
+        <button type="button" data-filter="crochet" class="project-filter-btn px-5 py-2 rounded-full text-xs uppercase tracking-widest font-medium bg-blush/70 text-espresso hover:bg-rose/40 transition-all">
+          Crochet Creations
+        </button>
+        <button type="button" data-filter="ai" class="project-filter-btn px-5 py-2 rounded-full text-xs uppercase tracking-widest font-medium bg-blush/70 text-espresso hover:bg-rose/40 transition-all">
+          AI Experiments
+        </button>
+        <button type="button" data-filter="digital" class="project-filter-btn px-5 py-2 rounded-full text-xs uppercase tracking-widest font-medium bg-blush/70 text-espresso hover:bg-rose/40 transition-all">
+          Digital Content
+        </button>
+        <button type="button" data-filter="learning" class="project-filter-btn px-5 py-2 rounded-full text-xs uppercase tracking-widest font-medium bg-blush/70 text-espresso hover:bg-rose/40 transition-all">
+          Learning Projects
+        </button>
+        <button type="button" data-filter="business" class="project-filter-btn px-5 py-2 rounded-full text-xs uppercase tracking-widest font-medium bg-blush/70 text-espresso hover:bg-rose/40 transition-all">
+          Business Ideas
+        </button>
+      </div>
+
+      <!-- Responsive Project Gallery Grid -->
+      <div id="projectsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        <!-- PROJECT CARD 1: Crochet Creations -->
+        <article data-category="crochet" class="project-card group bg-ivory border border-beige rounded-3xl overflow-hidden shadow-editorial hover:shadow-editorial-hover transition-all duration-300 flex flex-col">
+          <!-- Editable Image Placeholder -->
+          <div class="relative h-56 bg-blush/70 border-b border-beige flex items-center justify-center p-6 overflow-hidden">
+            <!-- Replace this SVG with <img src="your-project.jpg" class="w-full h-full object-cover" alt="..."> anytime -->
+            <svg class="w-28 h-28 text-espresso/80 group-hover:scale-105 transition-transform duration-500" viewBox="0 0 120 120" fill="none">
+              <circle cx="60" cy="60" r="38" fill="#FFF9F5" stroke="#493A3A" stroke-width="1.4"/>
+              <path d="M32 50C48 62 72 62 88 50" stroke="#D8A7AD" stroke-width="2" stroke-linecap="round"/>
+              <path d="M28 64C48 76 72 76 92 64" stroke="#493A3A" stroke-width="1.4" stroke-linecap="round"/>
+              <path d="M36 78C52 86 68 86 84 78" stroke="#D8A7AD" stroke-width="2" stroke-linecap="round"/>
+              <path d="M75 30L96 14" stroke="#493A3A" stroke-width="2" stroke-linecap="round"/>
+              <circle cx="98" cy="12" r="3" fill="#D8A7AD" stroke="#493A3A" stroke-width="1.2"/>
+            </svg>
+            <span class="absolute top-4 left-4 px-3.5 py-1 rounded-full bg-ivory/90 border border-beige text-[11px] uppercase tracking-wider font-medium text-espresso">
+              Crochet Creations
+            </span>
+          </div>
+
+          <div class="p-7 flex-1 flex flex-col justify-between space-y-5">
+            <div>
+              <h3 class="font-serif text-2xl text-espresso font-medium mb-2 editable-text">
+                Handmade Stitch &amp; Pattern Showcase
+              </h3>
+              <p class="text-sm text-espressoMuted leading-relaxed editable-text">
+                A dedicated showcase card for my upcoming and favorite crochet pieces—documenting yarn choices, stitch textures, and handmade keepsakes.
+              </p>
+            </div>
+            <div class="pt-4 border-t border-beige flex items-center justify-between">
+              <span class="text-xs text-espressoMuted italic">Editable Project Slot</span>
+              <button
+                type="button"
+                data-project-title="Handmade Stitch & Pattern Showcase"
+                data-project-cat="Crochet Creations"
+                data-project-desc="This space is ready for your real crochet project photos, pattern notes, yarn types, and stories. You can customize the title, description, and image directly in index.html."
+                class="open-project-modal inline-flex items-center gap-1.5 text-xs uppercase tracking-widest font-semibold text-espresso hover:text-roseDark transition-colors"
+              >
+                <span>Project Note</span>
+                <span>→</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- PROJECT CARD 2: AI Experiments -->
+        <article data-category="ai" class="project-card group bg-ivory border border-beige rounded-3xl overflow-hidden shadow-editorial hover:shadow-editorial-hover transition-all duration-300 flex flex-col">
+          <div class="relative h-56 bg-beige/40 border-b border-beige flex items-center justify-center p-6 overflow-hidden">
+            <svg class="w-28 h-28 text-espresso/80 group-hover:scale-105 transition-transform duration-500" viewBox="0 0 120 120" fill="none">
+              <rect x="24" y="24" width="72" height="72" rx="18" fill="#FFF9F5" stroke="#493A3A" stroke-width="1.4"/>
+              <path d="M60 38L64 52L78 56L64 60L60 74L56 60L42 56L56 52L60 38Z" fill="#F5E5E5" stroke="#493A3A" stroke-width="1.4"/>
+              <circle cx="80" cy="40" r="4" fill="#D8A7AD"/>
+              <circle cx="42" cy="76" r="3" fill="#D8A7AD"/>
+            </svg>
+            <span class="absolute top-4 left-4 px-3.5 py-1 rounded-full bg-ivory/90 border border-beige text-[11px] uppercase tracking-wider font-medium text-espresso">
+              AI Experiments
+            </span>
+          </div>
+
+          <div class="p-7 flex-1 flex flex-col justify-between space-y-5">
+            <div>
+              <h3 class="font-serif text-2xl text-espresso font-medium mb-2 editable-text">
+                Exploring Prompts &amp; AI Workflows
+              </h3>
+              <p class="text-sm text-espressoMuted leading-relaxed editable-text">
+                A sandbox for documenting my hands-on experiments with AI tools for research, creative brainstorming, and personal study productivity.
+              </p>
+            </div>
+            <div class="pt-4 border-t border-beige flex items-center justify-between">
+              <span class="text-xs text-espressoMuted italic">Editable Project Slot</span>
+              <button
+                type="button"
+                data-project-title="Exploring Prompts & AI Workflows"
+                data-project-cat="AI Experiments"
+                data-project-desc="Use this card to share your favorite AI experiments, prompt studies, or tech explorations as you test and build them."
+                class="open-project-modal inline-flex items-center gap-1.5 text-xs uppercase tracking-widest font-semibold text-espresso hover:text-roseDark transition-colors"
+              >
+                <span>Project Note</span>
+                <span>→</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- PROJECT CARD 3: Digital Content -->
+        <article data-category="digital" class="project-card group bg-ivory border border-beige rounded-3xl overflow-hidden shadow-editorial hover:shadow-editorial-hover transition-all duration-300 flex flex-col">
+          <div class="relative h-56 bg-blush/50 border-b border-beige flex items-center justify-center p-6 overflow-hidden">
+            <svg class="w-28 h-28 text-espresso/80 group-hover:scale-105 transition-transform duration-500" viewBox="0 0 120 120" fill="none">
+              <rect x="26" y="22" width="68" height="76" rx="10" fill="#FFF9F5" stroke="#493A3A" stroke-width="1.4"/>
+              <line x1="38" y1="40" x2="82" y2="40" stroke="#D8A7AD" stroke-width="2.5" stroke-linecap="round"/>
+              <line x1="38" y1="54" x2="76" y2="54" stroke="#493A3A" stroke-width="1.4" stroke-linecap="round"/>
+              <line x1="38" y1="66" x2="70" y2="66" stroke="#493A3A" stroke-width="1.4" stroke-linecap="round"/>
+              <circle cx="74" cy="78" r="8" fill="#F5E5E5" stroke="#493A3A" stroke-width="1.2"/>
+            </svg>
+            <span class="absolute top-4 left-4 px-3.5 py-1 rounded-full bg-ivory/90 border border-beige text-[11px] uppercase tracking-wider font-medium text-espresso">
+              Digital Content
+            </span>
+          </div>
+
+          <div class="p-7 flex-1 flex flex-col justify-between space-y-5">
+            <div>
+              <h3 class="font-serif text-2xl text-espresso font-medium mb-2 editable-text">
+                Visual Storytelling &amp; Digital Notes
+              </h3>
+              <p class="text-sm text-espressoMuted leading-relaxed editable-text">
+                Curated digital layouts, aesthetic visual stories, and thoughtful content pieces designed to share ideas with clarity and warmth.
+              </p>
+            </div>
+            <div class="pt-4 border-t border-beige flex items-center justify-between">
+              <span class="text-xs text-espressoMuted italic">Editable Project Slot</span>
+              <button
+                type="button"
+                data-project-title="Visual Storytelling & Digital Notes"
+                data-project-cat="Digital Content"
+                data-project-desc="Here you can link or showcase your digital graphics, social posts, blog essays, or visual design collections."
+                class="open-project-modal inline-flex items-center gap-1.5 text-xs uppercase tracking-widest font-semibold text-espresso hover:text-roseDark transition-colors"
+              >
+                <span>Project Note</span>
+                <span>→</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- PROJECT CARD 4: Learning Projects -->
+        <article data-category="learning" class="project-card group bg-ivory border border-beige rounded-3xl overflow-hidden shadow-editorial hover:shadow-editorial-hover transition-all duration-300 flex flex-col">
+          <div class="relative h-56 bg-beige/50 border-b border-beige flex items-center justify-center p-6 overflow-hidden">
+            <svg class="w-28 h-28 text-espresso/80 group-hover:scale-105 transition-transform duration-500" viewBox="0 0 120 120" fill="none">
+              <path d="M24 36C40 32 54 36 60 42C66 36 80 32 96 36V84C80 80 66 84 60 90C54 84 40 80 24 84V36Z" fill="#FFF9F5" stroke="#493A3A" stroke-width="1.4"/>
+              <line x1="60" y1="42" x2="60" y2="90" stroke="#D8A7AD" stroke-width="1.8"/>
+            </svg>
+            <span class="absolute top-4 left-4 px-3.5 py-1 rounded-full bg-ivory/90 border border-beige text-[11px] uppercase tracking-wider font-medium text-espresso">
+              Learning Projects
+            </span>
+          </div>
+
+          <div class="p-7 flex-1 flex flex-col justify-between space-y-5">
+            <div>
+              <h3 class="font-serif text-2xl text-espresso font-medium mb-2 editable-text">
+                Study Notes &amp; Skill-Building Log
+              </h3>
+              <p class="text-sm text-espressoMuted leading-relaxed editable-text">
+                A place to document student coursework, self-paced mini-projects, and practical exercises as I build new academic and technical skills.
+              </p>
+            </div>
+            <div class="pt-4 border-t border-beige flex items-center justify-between">
+              <span class="text-xs text-espressoMuted italic">Editable Project Slot</span>
+              <button
+                type="button"
+                data-project-title="Study Notes & Skill-Building Log"
+                data-project-cat="Learning Projects"
+                data-project-desc="Add any academic project, online course capstone, or personal study milestone here whenever you are ready."
+                class="open-project-modal inline-flex items-center gap-1.5 text-xs uppercase tracking-widest font-semibold text-espresso hover:text-roseDark transition-colors"
+              >
+                <span>Project Note</span>
+                <span>→</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- PROJECT CARD 5: Business Ideas -->
+        <article data-category="business" class="project-card group bg-ivory border border-beige rounded-3xl overflow-hidden shadow-editorial hover:shadow-editorial-hover transition-all duration-300 flex flex-col">
+          <div class="relative h-56 bg-blush/60 border-b border-beige flex items-center justify-center p-6 overflow-hidden">
+            <svg class="w-28 h-28 text-espresso/80 group-hover:scale-105 transition-transform duration-500" viewBox="0 0 120 120" fill="none">
+              <circle cx="60" cy="60" r="36" fill="#FFF9F5" stroke="#493A3A" stroke-width="1.4"/>
+              <path d="M60 34V86M34 60H86" stroke="#EDE2D5" stroke-width="1.4"/>
+              <polygon points="60,38 68,54 84,60 68,66 60,82 52,66 36,60 52,54" fill="#F5E5E5" stroke="#493A3A" stroke-width="1.4"/>
+            </svg>
+            <span class="absolute top-4 left-4 px-3.5 py-1 rounded-full bg-ivory/90 border border-beige text-[11px] uppercase tracking-wider font-medium text-espresso">
+              Business Ideas
+            </span>
+          </div>
+
+          <div class="p-7 flex-1 flex flex-col justify-between space-y-5">
+            <div>
+              <h3 class="font-serif text-2xl text-espresso font-medium mb-2 editable-text">
+                Future Brand &amp; Venture Concepts
+              </h3>
+              <p class="text-sm text-espressoMuted leading-relaxed editable-text">
+                Concept boards and early-stage entrepreneurial ideas—exploring how handmade artistry and digital creativity can blossom into thoughtful ventures.
+              </p>
+            </div>
+            <div class="pt-4 border-t border-beige flex items-center justify-between">
+              <span class="text-xs text-espressoMuted italic">Editable Project Slot</span>
+              <button
+                type="button"
+                data-project-title="Future Brand & Venture Concepts"
+                data-project-cat="Business Ideas"
+                data-project-desc="Document your small business concepts, handmade shop plans, or entrepreneurial case studies in this customizable card."
+                class="open-project-modal inline-flex items-center gap-1.5 text-xs uppercase tracking-widest font-semibold text-espresso hover:text-roseDark transition-colors"
+              >
+                <span>Project Note</span>
+                <span>→</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       6. MY JOURNEY SECTION
+       An elegant vertical timeline where learning progress, newly acquired skills,
+       completed projects, and personal milestones can be added and customized.
+       ========================================================================== -->
+  <section id="journey" class="py-20 md:py-28 bg-blush/35 border-b border-beige">
+    <div class="max-w-5xl mx-auto px-5 sm:px-8 lg:px-12">
+      
+      <!-- Section Header -->
+      <div class="max-w-2xl mx-auto text-center mb-16 reveal">
+        <span class="text-xs uppercase tracking-[0.25em] text-roseDark font-semibold block mb-2">
+          04 • Step by Step
+        </span>
+        <h2 class="font-serif text-4xl sm:text-5xl text-espresso font-normal tracking-tight editable-text">
+          My Journey
+        </h2>
+        <p class="mt-4 text-sm sm:text-base text-espressoMuted editable-text">
+          A living timeline of my learning progress, newly acquired skills, creative projects, and personal milestones.
+        </p>
+      </div>
+
+      <!-- Vertical Timeline Container -->
+      <div id="timelineContainer" class="relative border-l-2 border-rose/60 ml-4 sm:ml-8 pl-7 sm:pl-10 space-y-10">
+
+        <!-- Milestone 1 -->
+        <div class="relative group reveal">
+          <span class="absolute -left-[37px] sm:-left-[49px] top-1.5 w-4 h-4 rounded-full bg-ivory border-2 border-espresso group-hover:bg-rose transition-colors"></span>
+          <div class="bg-ivory border border-beige rounded-3xl p-7 shadow-editorial">
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+              <span class="text-xs uppercase tracking-[0.2em] text-roseDark font-semibold editable-text">
+                Chapter 01 • Foundation
+              </span>
+              <span class="px-3 py-0.5 rounded-full bg-blush text-[11px] font-medium text-espresso editable-text">
+                Learning &amp; Curiosity
+              </span>
+            </div>
+            <h3 class="font-serif text-2xl text-espresso font-medium mb-2 editable-text">
+              Embracing Intentional Learning &amp; Self-Development
+            </h3>
+            <p class="text-sm text-espressoMuted leading-relaxed editable-text">
+              Focusing on my studies in Bangladesh while cultivating habits of reading, reflective journaling, and exploring diverse interests beyond standard textbooks.
+            </p>
+          </div>
+        </div>
+
+        <!-- Milestone 2 -->
+        <div class="relative group reveal">
+          <span class="absolute -left-[37px] sm:-left-[49px] top-1.5 w-4 h-4 rounded-full bg-ivory border-2 border-espresso group-hover:bg-rose transition-colors"></span>
+          <div class="bg-ivory border border-beige rounded-3xl p-7 shadow-editorial">
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+              <span class="text-xs uppercase tracking-[0.2em] text-roseDark font-semibold editable-text">
+                Chapter 02 • Tactile Creativity
+              </span>
+              <span class="px-3 py-0.5 rounded-full bg-blush text-[11px] font-medium text-espresso editable-text">
+                Handmade Craft
+              </span>
+            </div>
+            <h3 class="font-serif text-2xl text-espresso font-medium mb-2 editable-text">
+              Exploring Crochet &amp; Handmade Artistry
+            </h3>
+            <p class="text-sm text-espressoMuted leading-relaxed editable-text">
+              Practicing foundational crochet stitches, experimenting with color palettes and yarn textures, and discovering the joy of creating tangible items by hand.
+            </p>
+          </div>
+        </div>
+
+        <!-- Milestone 3 -->
+        <div class="relative group reveal">
+          <span class="absolute -left-[37px] sm:-left-[49px] top-1.5 w-4 h-4 rounded-full bg-ivory border-2 border-espresso group-hover:bg-rose transition-colors"></span>
+          <div class="bg-ivory border border-beige rounded-3xl p-7 shadow-editorial">
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+              <span class="text-xs uppercase tracking-[0.2em] text-roseDark font-semibold editable-text">
+                Chapter 03 • Digital Frontier
+              </span>
+              <span class="px-3 py-0.5 rounded-full bg-blush text-[11px] font-medium text-espresso editable-text">
+                AI &amp; Digital Space
+              </span>
+            </div>
+            <h3 class="font-serif text-2xl text-espresso font-medium mb-2 editable-text">
+              Launching “The Nusrat Edit” &amp; Exploring AI Tools
+            </h3>
+            <p class="text-sm text-espressoMuted leading-relaxed editable-text">
+              Curating my personal corner on the web and experimenting with modern AI and digital tools to blend technology with creative expression.
+            </p>
+          </div>
+        </div>
+
+        <!-- Milestone 4 (Editable Future Slot) -->
+        <div class="relative group reveal">
+          <span class="absolute -left-[37px] sm:-left-[49px] top-1.5 w-4 h-4 rounded-full bg-rose border-2 border-espresso"></span>
+          <div class="bg-ivory/70 border border-dashed border-rose rounded-3xl p-7">
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+              <span class="text-xs uppercase tracking-[0.2em] text-roseDark font-semibold editable-text">
+                Next Milestone • Ready to Edit
+              </span>
+              <span class="px-3 py-0.5 rounded-full bg-beige/70 text-[11px] font-medium text-espresso editable-text">
+                Upcoming
+              </span>
+            </div>
+            <h3 class="font-serif text-2xl text-espresso font-medium mb-2 editable-text">
+              Your Next Skill, Project, or Achievement
+            </h3>
+            <p class="text-sm text-espressoMuted leading-relaxed editable-text">
+              Add your newest milestone here anytime—whether it is a finished crochet collection, a new course certificate, an AI workflow, or a business idea.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       7. MY CREATIVE CORNER
+       An elegant visual gallery for handmade creations, crochet projects,
+       digital experiments, and creative work with Lightbox inspection.
+       ========================================================================== -->
+  <section id="creative-corner" class="py-20 md:py-28 bg-ivory border-b border-beige">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
+      
+      <!-- Section Header -->
+      <div class="max-w-2xl mx-auto text-center mb-16 reveal">
+        <span class="text-xs uppercase tracking-[0.25em] text-roseDark font-semibold block mb-2">
+          05 • Visual Studio
+        </span>
+        <h2 class="font-serif text-4xl sm:text-5xl text-espresso font-normal tracking-tight editable-text">
+          My Creative Corner
+        </h2>
+        <p class="mt-4 text-sm sm:text-base text-espressoMuted editable-text">
+          A gallery space dedicated to handmade textures, crochet details, digital moodboards, and creative experiments. Click any card to view its studio note.
+        </p>
+      </div>
+
+      <!-- 4-Card Editorial Gallery Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+        <!-- Creative Item 1 -->
+        <div
+          class="creative-gallery-item group cursor-pointer bg-blush/50 border border-beige rounded-3xl overflow-hidden shadow-editorial hover:shadow-editorial-hover transition-all duration-300 reveal"
+          data-title="Warm Yarn & Texture Study"
+          data-category="Crochet & Handmade"
+          data-caption="An editable gallery frame for showcasing close-up photos of crochet stitches, soft yarn palettes, and handmade details."
+        >
+          <div class="aspect-square flex flex-col items-center justify-center p-8 bg-gradient-to-br from-blush via-ivory to-beige/60 relative">
+            <svg class="w-24 h-24 text-espresso group-hover:scale-110 transition-transform duration-500" viewBox="0 0 100 100" fill="none">
+              <circle cx="50" cy="50" r="30" stroke="#493A3A" stroke-width="1.3"/>
+              <path d="M28 42C42 52 58 52 72 42" stroke="#D8A7AD" stroke-width="2" stroke-linecap="round"/>
+              <path d="M25 54C42 64 58 64 75 54" stroke="#493A3A" stroke-width="1.3" stroke-linecap="round"/>
+              <path d="M32 66C45 73 55 73 68 66" stroke="#D8A7AD" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            <span class="mt-4 text-[11px] uppercase tracking-[0.2em] text-espressoMuted">Click to Inspect</span>
+          </div>
+          <div class="p-5 bg-ivory border-t border-beige">
+            <span class="text-[10px] uppercase tracking-[0.2em] text-roseDark font-semibold block">Crochet &amp; Handmade</span>
+            <h3 class="font-serif text-xl text-espresso font-medium mt-0.5 editable-text">Warm Yarn &amp; Texture Study</h3>
+          </div>
+        </div>
+
+        <!-- Creative Item 2 -->
+        <div
+          class="creative-gallery-item group cursor-pointer bg-blush/50 border border-beige rounded-3xl overflow-hidden shadow-editorial hover:shadow-editorial-hover transition-all duration-300 reveal"
+          data-title="Botanical & Minimalist Motifs"
+          data-category="Handmade Craft"
+          data-caption="Reserved for floral crochet coasters, bookmarks, or delicate handmade accessories crafted with patience."
+        >
+          <div class="aspect-square flex flex-col items-center justify-center p-8 bg-gradient-to-tr from-beige/60 via-ivory to-blush relative">
+            <svg class="w-24 h-24 text-espresso group-hover:scale-110 transition-transform duration-500" viewBox="0 0 100 100" fill="none">
+              <circle cx="50" cy="50" r="8" fill="#D8A7AD" stroke="#493A3A" stroke-width="1.3"/>
+              <circle cx="50" cy="30" r="10" stroke="#493A3A" stroke-width="1.3"/>
+              <circle cx="50" cy="70" r="10" stroke="#493A3A" stroke-width="1.3"/>
+              <circle cx="30" cy="50" r="10" stroke="#493A3A" stroke-width="1.3"/>
+              <circle cx="70" cy="50" r="10" stroke="#493A3A" stroke-width="1.3"/>
+            </svg>
+            <span class="mt-4 text-[11px] uppercase tracking-[0.2em] text-espressoMuted">Click to Inspect</span>
+          </div>
+          <div class="p-5 bg-ivory border-t border-beige">
+            <span class="text-[10px] uppercase tracking-[0.2em] text-roseDark font-semibold block">Handmade Craft</span>
+            <h3 class="font-serif text-xl text-espresso font-medium mt-0.5 editable-text">Botanical &amp; Minimalist Motifs</h3>
+          </div>
+        </div>
+
+        <!-- Creative Item 3 -->
+        <div
+          class="creative-gallery-item group cursor-pointer bg-blush/50 border border-beige rounded-3xl overflow-hidden shadow-editorial hover:shadow-editorial-hover transition-all duration-300 reveal"
+          data-title="Editorial Color & Typography Board"
+          data-category="Digital Experiment"
+          data-caption="A space for digital design experiments, aesthetic templates, and visual concepts in Warm Ivory and Dusty Rose."
+        >
+          <div class="aspect-square flex flex-col items-center justify-center p-8 bg-gradient-to-bl from-blush via-ivory to-beige/50 relative">
+            <svg class="w-24 h-24 text-espresso group-hover:scale-110 transition-transform duration-500" viewBox="0 0 100 100" fill="none">
+              <rect x="24" y="24" width="34" height="44" rx="6" fill="#FFF9F5" stroke="#493A3A" stroke-width="1.3"/>
+              <rect x="42" y="34" width="34" height="44" rx="6" fill="#F5E5E5" stroke="#493A3A" stroke-width="1.3"/>
+              <circle cx="59" cy="56" r="8" fill="#D8A7AD"/>
+            </svg>
+            <span class="mt-4 text-[11px] uppercase tracking-[0.2em] text-espressoMuted">Click to Inspect</span>
+          </div>
+          <div class="p-5 bg-ivory border-t border-beige">
+            <span class="text-[10px] uppercase tracking-[0.2em] text-roseDark font-semibold block">Digital Experiment</span>
+            <h3 class="font-serif text-xl text-espresso font-medium mt-0.5 editable-text">Editorial Color &amp; Type Board</h3>
+          </div>
+        </div>
+
+        <!-- Creative Item 4 -->
+        <div
+          class="creative-gallery-item group cursor-pointer bg-blush/50 border border-beige rounded-3xl overflow-hidden shadow-editorial hover:shadow-editorial-hover transition-all duration-300 reveal"
+          data-title="AI & Creative Concept Sketches"
+          data-category="Creative Exploration"
+          data-caption="A home for creative brainstorming, AI-assisted concept studies, and new ideas waiting to be brought to life."
+        >
+          <div class="aspect-square flex flex-col items-center justify-center p-8 bg-gradient-to-tl from-beige/70 via-ivory to-blush relative">
+            <svg class="w-24 h-24 text-espresso group-hover:scale-110 transition-transform duration-500" viewBox="0 0 100 100" fill="none">
+              <path d="M50 22L55 43L76 48L55 53L50 74L45 53L24 48L45 43L50 22Z" fill="#FFF9F5" stroke="#493A3A" stroke-width="1.3"/>
+              <circle cx="70" cy="28" r="4" fill="#D8A7AD"/>
+            </svg>
+            <span class="mt-4 text-[11px] uppercase tracking-[0.2em] text-espressoMuted">Click to Inspect</span>
+          </div>
+          <div class="p-5 bg-ivory border-t border-beige">
+            <span class="text-[10px] uppercase tracking-[0.2em] text-roseDark font-semibold block">Creative Exploration</span>
+            <h3 class="font-serif text-xl text-espresso font-medium mt-0.5 editable-text">AI &amp; Concept Sketches</h3>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       8. MY VISION SECTION
+       Aspirations in education, technology, creativity, entrepreneurship,
+       and personal growth.
+       ========================================================================== -->
+  <section id="vision" class="py-20 md:py-28 bg-editorial-gradient border-b border-beige">
+    <div class="max-w-6xl mx-auto px-5 sm:px-8 lg:px-12">
+      
+      <div class="bg-ivory border border-beige rounded-[36px] p-8 sm:p-14 lg:p-16 shadow-editorial reveal">
+        <div class="max-w-3xl mx-auto text-center space-y-6">
+          <span class="text-xs uppercase tracking-[0.25em] text-roseDark font-semibold block">
+            06 • Looking Ahead
+          </span>
+          <h2 class="font-serif text-4xl sm:text-5xl text-espresso font-normal tracking-tight editable-text">
+            My Vision
+          </h2>
+          <blockquote class="font-serif italic text-2xl sm:text-3xl text-espresso leading-relaxed editable-text">
+            “To grow with grace—where continuous education, thoughtful technology, handmade artistry, and purposeful entrepreneurship come together.”
+          </blockquote>
+          <p class="text-sm sm:text-base text-espressoMuted leading-relaxed editable-text">
+            As I look toward the future, my aspiration is not simply to collect skills, but to weave them into a meaningful life and career. Here is what I am working toward:
+          </p>
+        </div>
+
+        <!-- Five Vision Pillars matching her aspirations -->
+        <div class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="p-6 rounded-2xl bg-blush/45 border border-beige">
+            <span class="text-xs uppercase tracking-widest text-roseDark font-semibold">01 • Education</span>
+            <h3 class="font-serif text-2xl text-espresso font-medium mt-1 mb-2 editable-text">Lifelong Scholarship</h3>
+            <p class="text-sm text-espressoMuted leading-relaxed editable-text">
+              Deepening my academic foundation while staying curious, disciplined, and open to global ideas.
+            </p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-blush/45 border border-beige">
+            <span class="text-xs uppercase tracking-widest text-roseDark font-semibold">02 • Technology</span>
+            <h3 class="font-serif text-2xl text-espresso font-medium mt-1 mb-2 editable-text">Human-Centered Tech</h3>
+            <p class="text-sm text-espressoMuted leading-relaxed editable-text">
+              Embracing AI and modern digital tools thoughtfully to solve problems and amplify human creativity.
+            </p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-blush/45 border border-beige">
+            <span class="text-xs uppercase tracking-widest text-roseDark font-semibold">03 • Creativity</span>
+            <h3 class="font-serif text-2xl text-espresso font-medium mt-1 mb-2 editable-text">Artistry in Every Medium</h3>
+            <p class="text-sm text-espressoMuted leading-relaxed editable-text">
+              Continuing to nurture both slow handmade crafts like crochet and modern digital expression.
+            </p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-blush/45 border border-beige md:col-span-1 lg:col-span-1">
+            <span class="text-xs uppercase tracking-widest text-roseDark font-semibold">04 • Entrepreneurship</span>
+            <h3 class="font-serif text-2xl text-espresso font-medium mt-1 mb-2 editable-text">Purposeful Ventures</h3>
+            <p class="text-sm text-espressoMuted leading-relaxed editable-text">
+              Building future creative or digital initiatives that bring genuine warmth and value to others.
+            </p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-blush/45 border border-beige md:col-span-1 lg:col-span-2">
+            <span class="text-xs uppercase tracking-widest text-roseDark font-semibold">05 • Personal Growth</span>
+            <h3 class="font-serif text-2xl text-espresso font-medium mt-1 mb-2 editable-text">Becoming My Best Self</h3>
+            <p class="text-sm text-espressoMuted leading-relaxed editable-text">
+              Growing with integrity, resilience, and kindness—representing my roots in Bangladesh while connecting with a wider world of learners and creators.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       9. CONTACT SECTION
+       Editable placeholders for email and social media links (no fake contact info)
+       plus an interactive Note Composer that copies a formatted message.
+       ========================================================================== -->
+  <section id="contact" class="py-20 md:py-28 bg-ivory">
+    <div class="max-w-6xl mx-auto px-5 sm:px-8 lg:px-12">
+      
+      <!-- Section Header -->
+      <div class="max-w-2xl mx-auto text-center mb-16 reveal">
+        <span class="text-xs uppercase tracking-[0.25em] text-roseDark font-semibold block mb-2">
+          07 • Connect
+        </span>
+        <h2 class="font-serif text-4xl sm:text-5xl text-espresso font-normal tracking-tight editable-text">
+          Get in Touch
+        </h2>
+        <p class="mt-4 text-sm sm:text-base text-espressoMuted editable-text">
+          Whether you would like to share a kind thought, discuss learning and creativity, or connect over crochet and technology, I would love to hear from you.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+        
+        <!-- Left Column: Editable Contact & Social Placeholders (5 Columns) -->
+        <div class="lg:col-span-5 bg-blush/55 border border-beige rounded-3xl p-8 sm:p-10 shadow-editorial space-y-6 reveal">
+          <div>
+            <span class="text-xs uppercase tracking-[0.2em] text-roseDark font-semibold">Direct Channels</span>
+            <h3 class="font-serif text-3xl text-espresso font-medium mt-1 editable-text">
+              Contact Placeholders
+            </h3>
+            <p class="text-xs text-espressoMuted mt-1">
+              Ready for your personal email and social links. Edit directly in <code class="px-1.5 py-0.5 rounded bg-ivory text-espresso">index.html</code>.
+            </p>
+          </div>
+
+          <!-- ================================================================
+               HOW TO ADD YOUR REAL EMAIL & SOCIAL LINKS:
+               Replace the text inside the <span> tags below and update href="..."
+               when you are ready to publish your links.
+               ================================================================ -->
+          <div class="space-y-4">
+            
+            <!-- Email Placeholder Card -->
+            <div class="p-4 rounded-2xl bg-ivory border border-beige flex items-center justify-between gap-3">
+              <div class="min-w-0">
+                <span class="block text-[11px] uppercase tracking-widest text-espressoMuted">Email Address</span>
+                <span id="emailPlaceholderText" class="text-sm font-medium text-espresso truncate block editable-text">
+                  [Add your email here]
+                </span>
+              </div>
+              <button
+                type="button"
+                data-placeholder-type="Email Address"
+                class="contact-placeholder-btn shrink-0 px-3.5 py-1.5 rounded-full bg-blush hover:bg-rose text-espresso text-xs font-medium transition-colors"
+              >
+                How to Edit
+              </button>
+            </div>
+
+            <!-- Instagram / Creative Social Placeholder -->
+            <div class="p-4 rounded-2xl bg-ivory border border-beige flex items-center justify-between gap-3">
+              <div class="min-w-0">
+                <span class="block text-[11px] uppercase tracking-widest text-espressoMuted">Instagram / Creative Page</span>
+                <span class="text-sm font-medium text-espresso truncate block editable-text">
+                  [Add your Instagram handle]
+                </span>
+              </div>
+              <button
+                type="button"
+                data-placeholder-type="Instagram Link"
+                class="contact-placeholder-btn shrink-0 px-3.5 py-1.5 rounded-full bg-blush hover:bg-rose text-espresso text-xs font-medium transition-colors"
+              >
+                How to Edit
+              </button>
+            </div>
+
+            <!-- LinkedIn / Academic Profile Placeholder -->
+            <div class="p-4 rounded-2xl bg-ivory border border-beige flex items-center justify-between gap-3">
+              <div class="min-w-0">
+                <span class="block text-[11px] uppercase tracking-widest text-espressoMuted">LinkedIn / Portfolio Link</span>
+                <span class="text-sm font-medium text-espresso truncate block editable-text">
+                  [Add your LinkedIn profile]
+                </span>
+              </div>
+              <button
+                type="button"
+                data-placeholder-type="LinkedIn Link"
+                class="contact-placeholder-btn shrink-0 px-3.5 py-1.5 rounded-full bg-blush hover:bg-rose text-espresso text-xs font-medium transition-colors"
+              >
+                How to Edit
+              </button>
+            </div>
+
+            <!-- Facebook / YouTube / Other Social Placeholder -->
+            <div class="p-4 rounded-2xl bg-ivory border border-beige flex items-center justify-between gap-3">
+              <div class="min-w-0">
+                <span class="block text-[11px] uppercase tracking-widest text-espressoMuted">Other Social / Channel</span>
+                <span class="text-sm font-medium text-espresso truncate block editable-text">
+                  [Add your social link]
+                </span>
+              </div>
+              <button
+                type="button"
+                data-placeholder-type="Social Channel"
+                class="contact-placeholder-btn shrink-0 px-3.5 py-1.5 rounded-full bg-blush hover:bg-rose text-espresso text-xs font-medium transition-colors"
+              >
+                How to Edit
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Right Column: Working Interactive Note Composer (7 Columns) -->
+        <div class="lg:col-span-7 bg-ivory border border-beige rounded-3xl p-8 sm:p-10 shadow-editorial reveal">
+          <span class="text-xs uppercase tracking-[0.2em] text-roseDark font-semibold">Write a Note</span>
+          <h3 class="font-serif text-3xl text-espresso font-medium mt-1 mb-2">
+            Prepare a Message for Nusrat
+          </h3>
+          <p class="text-sm text-espressoMuted mb-6">
+            Compose your message below and copy it with one click so you can send it via email or social media.
+          </p>
+
+          <form id="contactNoteForm" class="space-y-5">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div>
+                <label for="senderName" class="block text-xs uppercase tracking-wider text-espresso font-medium mb-2">Your Name</label>
+                <input
+                  id="senderName"
+                  type="text"
+                  required
+                  placeholder="Enter your name"
+                  class="w-full px-4 py-3 rounded-2xl bg-ivory border border-beige focus:border-espresso focus:outline-none text-sm text-espresso"
+                />
+              </div>
+              <div>
+                <label for="senderTopic" class="block text-xs uppercase tracking-wider text-espresso font-medium mb-2">Topic</label>
+                <select
+                  id="senderTopic"
+                  class="w-full px-4 py-3 rounded-2xl bg-ivory border border-beige focus:border-espresso focus:outline-none text-sm text-espresso"
+                >
+                  <option value="General Hello">General Hello</option>
+                  <option value="Crochet & Handmade Craft">Crochet &amp; Handmade Craft</option>
+                  <option value="AI & Technology">AI &amp; Technology</option>
+                  <option value="Learning & Collaboration">Learning &amp; Collaboration</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label for="senderMessage" class="block text-xs uppercase tracking-wider text-espresso font-medium mb-2">Your Message</label>
+              <textarea
+                id="senderMessage"
+                rows="4"
+                required
+                placeholder="Write a warm note..."
+                class="w-full px-4 py-3 rounded-2xl bg-ivory border border-beige focus:border-espresso focus:outline-none text-sm text-espresso"
+              ></textarea>
+            </div>
+
+            <div class="flex flex-wrap items-center justify-between gap-4 pt-2">
+              <button
+                type="submit"
+                class="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-espresso text-ivory text-xs uppercase tracking-[0.18em] font-medium hover:bg-rose hover:text-espresso transition-all duration-300 shadow-sm"
+              >
+                <span>Format &amp; Copy Note</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                </svg>
+              </button>
+              <span id="formFeedbackMsg" class="text-xs text-roseDark font-medium hidden"></span>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       10. FOOTER
+       Displays "The Nusrat Edit", tagline "Learning. Creating. Becoming.",
+       and a smooth Back to Top button.
+       ========================================================================== -->
+  <footer class="bg-blush/60 border-t border-beige py-14">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
+        
+        <!-- Brand Name & Tagline -->
+        <div class="space-y-1.5">
+          <p class="font-serif text-3xl text-espresso font-semibold tracking-tight">
+            The Nusrat Edit
+          </p>
+          <p class="font-serif italic text-lg text-roseDark">
+            Learning. Creating. Becoming.
+          </p>
+          <p class="text-xs text-espressoMuted pt-1">
+            Nusrat Jahan • Bangladesh
+          </p>
+        </div>
+
+        <!-- Quick Footer Navigation -->
+        <div class="flex flex-wrap justify-center gap-6 text-xs uppercase tracking-widest text-espressoMuted">
+          <a href="#about" class="hover:text-espresso transition-colors">About</a>
+          <a href="#interests" class="hover:text-espresso transition-colors">Interests</a>
+          <a href="#projects" class="hover:text-espresso transition-colors">Projects</a>
+          <a href="#journey" class="hover:text-espresso transition-colors">Journey</a>
+          <a href="#creative-corner" class="hover:text-espresso transition-colors">Creative Corner</a>
+          <a href="#vision" class="hover:text-espresso transition-colors">Vision</a>
+        </div>
+
+        <!-- Smooth Back to Top Button -->
+        <a
+          href="#home"
+          class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-ivory border border-beige text-xs uppercase tracking-widest text-espresso hover:bg-espresso hover:text-ivory transition-all duration-300 shadow-sm"
+        >
+          <span>Back to Top</span>
+          <span>↑</span>
+        </a>
+
+      </div>
+
+      <div class="mt-10 pt-6 border-t border-beige/80 flex flex-col sm:flex-row items-center justify-between text-xs text-espressoMuted gap-2">
+        <p>© <span id="currentYear"></span> The Nusrat Edit — Nusrat Jahan. All rights reserved.</p>
+        <p>Designed with warmth, simplicity, and intention.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       REUSABLE MODAL DIALOG (For Project Details, Creative Lightbox & Edit Guide)
+       Replaces any browser alert() with an elegant editorial modal.
+       ========================================================================== -->
+  <div
+    id="editorialModal"
+    class="fixed inset-0 z-50 hidden items-center justify-center bg-espresso/40 backdrop-blur-sm p-4"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="modalTitle"
+  >
+    <div class="bg-ivory border border-beige rounded-3xl max-w-lg w-full p-8 shadow-editorial-hover relative animate-fadeIn">
+      <button
+        id="closeModalBtn"
+        type="button"
+        class="absolute top-5 right-5 w-9 h-9 rounded-full bg-blush hover:bg-rose text-espresso flex items-center justify-center transition-colors"
+        aria-label="Close modal"
+      >
+        ✕
+      </button>
+
+      <span id="modalCategory" class="text-xs uppercase tracking-[0.22em] text-roseDark font-semibold block mb-2">
+        The Nusrat Edit
+      </span>
+      <h3 id="modalTitle" class="font-serif text-3xl text-espresso font-medium mb-4">
+        Modal Title
+      </h3>
+      <p id="modalBody" class="text-sm sm:text-base text-espressoMuted leading-relaxed mb-6">
+        Modal description goes here.
+      </p>
+      <div class="flex justify-end">
+        <button
+          id="modalActionBtn"
+          type="button"
+          class="px-6 py-2.5 rounded-full bg-espresso text-ivory text-xs uppercase tracking-widest hover:bg-rose hover:text-espresso transition-colors"
+        >
+          Close Note
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       JAVASCRIPT INTERACTIVITY
+       Handles mobile navigation, category filtering, photo preview, live text
+       editing mode, modal dialogs, scroll animations, and clipboard helper.
+       ========================================================================== -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Set current year in footer
+      const yearSpan = document.getElementById('currentYear');
+      if (yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
+      }
+
+      // 2. Mobile Menu Toggle
+      const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+      const mobileMenu = document.getElementById('mobileMenu');
+      const menuIconOpen = document.getElementById('menuIconOpen');
+      const menuIconClose = document.getElementById('menuIconClose');
+      const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+      function toggleMobileMenu() {
+        const isHidden = mobileMenu.classList.contains('hidden');
+        if (isHidden) {
+          mobileMenu.classList.remove('hidden');
+          menuIconOpen.classList.add('hidden');
+          menuIconClose.classList.remove('hidden');
+          mobileMenuBtn.setAttribute('aria-expanded', 'true');
+        } else {
+          mobileMenu.classList.add('hidden');
+          menuIconOpen.classList.remove('hidden');
+          menuIconClose.classList.add('hidden');
+          mobileMenuBtn.setAttribute('aria-expanded', 'false');
+        }
+      }
+
+      if (mobileMenuBtn) {
+        mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+      }
+
+      mobileNavLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          if (!mobileMenu.classList.contains('hidden')) {
+            toggleMobileMenu();
+          }
+        });
+      });
+
+      // 3. Profile Photo Local Preview Helper
+      const profilePhotoInput = document.getElementById('profilePhotoInput');
+      const userProfilePhoto = document.getElementById('userProfilePhoto');
+      const photoPlaceholderGraphic = document.getElementById('photoPlaceholderGraphic');
+      const resetPhotoBtn = document.getElementById('resetPhotoBtn');
+
+      if (profilePhotoInput && userProfilePhoto) {
+        profilePhotoInput.addEventListener('change', (e) => {
+          const file = e.target.files && e.target.files[0];
+          if (!file) return;
+          const reader = new FileReader();
+          reader.onload = function(evt) {
+            userProfilePhoto.src = evt.target.result;
+            userProfilePhoto.classList.remove('hidden');
+            if (photoPlaceholderGraphic) photoPlaceholderGraphic.classList.add('opacity-0');
+            if (resetPhotoBtn) resetPhotoBtn.classList.remove('hidden');
+          };
+          reader.readAsDataURL(file);
+        });
+      }
+
+      if (resetPhotoBtn) {
+        resetPhotoBtn.addEventListener('click', () => {
+          userProfilePhoto.src = '';
+          userProfilePhoto.classList.add('hidden');
+          if (photoPlaceholderGraphic) photoPlaceholderGraphic.classList.remove('opacity-0');
+          resetPhotoBtn.classList.add('hidden');
+          if (profilePhotoInput) profilePhotoInput.value = '';
+        });
+      }
+
+      // 4. Live Text Edit Mode Toggle (Allows testing custom text right in browser)
+      let isEditMode = false;
+      const toggleEditModeBtn = document.getElementById('toggleEditModeBtn');
+      const mobileToggleEditBtn = document.getElementById('mobileToggleEditBtn');
+      const editBtnLabel = document.getElementById('editBtnLabel');
+      const editStatusDot = document.getElementById('editStatusDot');
+      const editableElements = document.querySelectorAll('.editable-text');
+
+      function toggleLiveEditMode() {
+        isEditMode = !isEditMode;
+        editableElements.forEach(el => {
+          el.setAttribute('contenteditable', isEditMode ? 'true' : 'false');
+        });
+        if (editBtnLabel) {
+          editBtnLabel.textContent = isEditMode ? 'Editing Active (Click Text)' : 'Try Live Edit';
+        }
+        if (editStatusDot) {
+          editStatusDot.className = isEditMode
+            ? 'w-2 h-2 rounded-full bg-espresso animate-ping'
+            : 'w-2 h-2 rounded-full bg-rose';
+        }
+      }
+
+      if (toggleEditModeBtn) {
+        toggleEditModeBtn.addEventListener('click', toggleLiveEditMode);
+      }
+      if (mobileToggleEditBtn) {
+        mobileToggleEditBtn.addEventListener('click', () => {
+          toggleLiveEditMode();
+          toggleMobileMenu();
+        });
+      }
+
+      // 5. Project Category Filtering
+      const filterBtns = document.querySelectorAll('.project-filter-btn');
+      const projectCards = document.querySelectorAll('.project-card');
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const selectedFilter = btn.getAttribute('data-filter');
+
+          // Update active button styling
+          filterBtns.forEach(b => {
+            b.classList.remove('bg-espresso', 'text-ivory');
+            b.classList.add('bg-blush/70', 'text-espresso');
+          });
+          btn.classList.remove('bg-blush/70', 'text-espresso');
+          btn.classList.add('bg-espresso', 'text-ivory');
+
+          // Show/hide matching cards
+          projectCards.forEach(card => {
+            const cardCat = card.getAttribute('data-category');
+            if (selectedFilter === 'all' || selectedFilter === cardCat) {
+              card.classList.remove('hidden');
+            } else {
+              card.classList.add('hidden');
+            }
+          });
+        });
+      });
+
+      // 6. Editorial Modal System (Used by Projects, Creative Corner, and Contact Guide)
+      const editorialModal = document.getElementById('editorialModal');
+      const modalCategory = document.getElementById('modalCategory');
+      const modalTitle = document.getElementById('modalTitle');
+      const modalBody = document.getElementById('modalBody');
+      const closeModalBtn = document.getElementById('closeModalBtn');
+      const modalActionBtn = document.getElementById('modalActionBtn');
+
+      function openModal(category, title, bodyText) {
+        if (!editorialModal) return;
+        modalCategory.textContent = category;
+        modalTitle.textContent = title;
+        modalBody.textContent = bodyText;
+        editorialModal.classList.remove('hidden');
+        editorialModal.classList.add('flex');
+      }
+
+      function closeModal() {
+        if (!editorialModal) return;
+        editorialModal.classList.add('hidden');
+        editorialModal.classList.remove('flex');
+      }
+
+      if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
+      if (modalActionBtn) modalActionBtn.addEventListener('click', closeModal);
+      if (editorialModal) {
+        editorialModal.addEventListener('click', (e) => {
+          if (e.target === editorialModal) closeModal();
+        });
+      }
+
+      // Attach Modal to Project Cards
+      document.querySelectorAll('.open-project-modal').forEach(btn => {
+        btn.addEventListener('click', () => {
+          openModal(
+            btn.getAttribute('data-project-cat'),
+            btn.getAttribute('data-project-title'),
+            btn.getAttribute('data-project-desc')
+          );
+        });
+      });
+
+      // Attach Modal to Creative Corner Gallery Cards
+      document.querySelectorAll('.creative-gallery-item').forEach(item => {
+        item.addEventListener('click', () => {
+          openModal(
+            item.getAttribute('data-category'),
+            item.getAttribute('data-title'),
+            item.getAttribute('data-caption')
+          );
+        });
+      });
+
+      // Attach Modal to Contact Placeholder Helper Buttons
+      document.querySelectorAll('.contact-placeholder-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const type = btn.getAttribute('data-placeholder-type');
+          openModal(
+            'Easy Customization Guide',
+            `Adding Your ${type}`,
+            `To permanently add your real ${type}, open index.html in Notepad or VS Code, scroll to the Contact Section (Section 9), and replace the placeholder text with your own details. You can also click "Try Live Edit" in the top navigation bar to test how it looks right now!`
+          );
+        });
+      });
+
+      // 7. Interactive Contact Note Composer (Copies formatted message to clipboard)
+      const contactNoteForm = document.getElementById('contactNoteForm');
+      const formFeedbackMsg = document.getElementById('formFeedbackMsg');
+
+      if (contactNoteForm) {
+        contactNoteForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const name = document.getElementById('senderName').value.trim();
+          const topic = document.getElementById('senderTopic').value;
+          const message = document.getElementById('senderMessage').value.trim();
+
+          const formattedNote = `Hello Nusrat,\n\nTopic: ${topic}\nFrom: ${name}\n\n${message}\n\n— Sent via The Nusrat Edit`;
+
+          // Copy using textarea & execCommand for maximum compatibility
+          const tempInput = document.createElement('textarea');
+          tempInput.value = formattedNote;
+          document.body.appendChild(tempInput);
+          tempInput.select();
+          try {
+            document.execCommand('copy');
+            if (formFeedbackMsg) {
+              formFeedbackMsg.textContent = '✓ Your note has been copied to your clipboard!';
+              formFeedbackMsg.classList.remove('hidden');
+            }
+          } catch (err) {
+            if (formFeedbackMsg) {
+              formFeedbackMsg.textContent = 'Note formatted! Ready to share.';
+              formFeedbackMsg.classList.remove('hidden');
+            }
+          }
+          document.body.removeChild(tempInput);
+          contactNoteForm.reset();
+        });
+      }
+
+      // 8. Smooth Scroll Reveal Observer
+      const revealItems = document.querySelectorAll('.reveal');
+      if ('IntersectionObserver' in window) {
+        const revealObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('active');
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12 });
+
+        revealItems.forEach(el => revealObserver.observe(el));
+      } else {
+        revealItems.forEach(el => el.classList.add('active'));
+      }
+    });
+  </script>
+</body>
+</html>
